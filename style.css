@@ -14,3 +14,5 @@ output,.results{display:block}.results{border:2px solid var(--acc);border-radius
 table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);padding:.35rem .5rem;text-align:left}
 footer{margin-top:3rem;padding-bottom:2rem;font-size:.88rem;color:var(--mut);border-top:1px solid var(--bd)}
 .cards{list-style:none;padding:0}.cards li{border:1px solid var(--bd);border-radius:8px;padding:1rem;margin:.75rem 0}
+.skip{position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}.skip:focus{left:1rem;top:.5rem;width:auto;height:auto;padding:.5rem .8rem;background:#fff;border:2px solid var(--acc);z-index:10}
+.related{border-top:1px solid var(--bd);margin-top:2rem}.cta[hidden],.ad-slot[hidden],.aff-slot[hidden]{display:none!important}

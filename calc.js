@@ -82,7 +82,76 @@
       grossYield: grossRent / price * 100, netYield: (collected - costs) / price * 100,
       repayment: repay, approxInterest: interest, cashFlow: cf, cashFlowWeekly: cf / 52 };
   }
+
+  // VIC land transfer duty (SRO Victoria current rates; contracts on/after 1 July 2021).
+  function vicGeneralDuty(v) {
+    if (v <= 25000) return v * 0.014;
+    if (v <= 130000) return 350 + (v - 25000) * 0.024;
+    if (v <= 960000) return 2870 + (v - 130000) * 0.06;
+    if (v <= 2000000) return v * 0.055;
+    return 110000 + (v - 2000000) * 0.065;
+  }
+  // PPR concession rates apply only for dutiable value > $130,000 and <= $550,000.
+  function vicPprDuty(v) {
+    if (v <= 130000 || v > 550000) return vicGeneralDuty(v);
+    if (v <= 440000) return 2870 + (v - 130000) * 0.05;
+    return 18370 + (v - 440000) * 0.06;
+  }
+  // First home buyer: nil <= $600k; $600,001-$750,000 duty x (v - 600,000) / 150,000.
+  function vicDuty(p) {
+    var v = Math.max(0, +p.value || 0), ppr = p.ppr !== false && !!p.ppr, fhb = !!p.fhb;
+    var general = vicGeneralDuty(v), base = ppr || fhb ? vicPprDuty(v) : general, payable = base;
+    if (fhb) { if (v <= 600000) payable = 0; else if (v <= 750000) payable = base * (v - 600000) / 150000; }
+    return { general: general, beforeFhb: base, payable: payable, saving: general - payable,
+      effectiveRate: v > 0 ? payable / v * 100 : 0 };
+  }
+  // HELP / study loan compulsory repayment 2026-27 (marginal system).
+  function helpRepayment(ri) {
+    ri = Math.max(0, +ri || 0);
+    if (ri <= 69528) return 0;
+    if (ri <= 129717) return (ri - 69528) * 0.15;
+    if (ri <= 186050) return 9028 + (ri - 129717) * 0.17;
+    return ri * 0.10;
+  }
+  // Take-home pay for a full-year resident employee. Salary excludes super.
+  function takeHome(p) {
+    var sal = Math.max(0, +p.salary || 0), extra = Math.max(0, +p.reportable || 0);
+    var o = { lito: true, medicare: p.medicare !== false };
+    var tax = totalTax(sal, o), ml = o.medicare ? medicare(sal) : 0;
+    var help = p.help ? helpRepayment(sal + extra) : 0, net = sal - tax - help;
+    return { incomeTax: tax - ml, medicare: ml, help: help, totalDeductions: tax + help, net: net,
+      monthly: net / 12, fortnightly: net / 26, weekly: net / 52,
+      employerSuper: sal * ((p.superPct == null ? 12 : +p.superPct) / 100), effectiveRate: sal > 0 ? (tax + help) / sal * 100 : 0 };
+  }
+  // Employee salary -> equivalent contractor rate (covers super, paid leave, public holidays, overheads).
+  function contractorRate(p) {
+    var sal = +p.salary || 0, sup = sal * ((+p.superPct || 0) / 100);
+    var pkg = sal + sup + sal * ((+p.loadingPct || 0) / 100) * ((+p.leaveWeeks || 0) / 52) + (+p.overheads || 0);
+    var weeks = 52 - (+p.leaveWeeks || 0) - (+p.publicHolidays || 0) / 5 - (+p.personalDays || 0) / 5 - (+p.benchWeeks || 0);
+    var hours = weeks * (+p.hoursPerWeek || 0);
+    if (hours <= 0) return null;
+    var rate = pkg / hours, offered = +p.offeredRate || 0;
+    return { package: pkg, superAmt: sup, weeks: weeks, hours: hours, rateExGst: rate, dayRate: rate * (+p.hoursPerWeek || 0) / 5,
+      rateIncGst: rate * 1.1, offeredAsSalary: offered > 0 ? (offered * hours - (+p.overheads || 0)) / (1 + (+p.superPct || 0) / 100) : 0 };
+  }
+  // Extra repayments and offset: monthly simulation, interest on (balance - offset).
+  function mortgageExtra(p) {
+    var loan = +p.loan || 0, r = (+p.ratePct || 0) / 100 / 12, yrs = +p.years || 30;
+    var pmt = annualRepayment(loan, +p.ratePct || 0, yrs, false) / 12;
+    function sim(extra, offset) {
+      var b = loan, m = 0, int = 0;
+      while (b > 0.005 && m < yrs * 12 + 600) {
+        var i = Math.max(0, b - offset) * r; int += i; b = b + i - Math.min(b + i, pmt + extra); m++;
+      }
+      return { months: m, interest: int };
+    }
+    var base = sim(0, 0), w = sim(Math.max(0, +p.extraMonthly || 0), Math.max(0, +p.offset || 0));
+    return { repayment: pmt, baseMonths: base.months, baseInterest: base.interest, newMonths: w.months,
+      newInterest: w.interest, interestSaved: base.interest - w.interest, monthsSaved: base.months - w.months };
+  }
   var api = { incomeTax: incomeTax, lito: lito, medicare: medicare, totalTax: totalTax,
-    soleTrader: soleTrader, chargeOut: chargeOut, rentalYield: rentalYield, annualRepayment: annualRepayment };
+    soleTrader: soleTrader, chargeOut: chargeOut, rentalYield: rentalYield, annualRepayment: annualRepayment,
+    vicGeneralDuty: vicGeneralDuty, vicPprDuty: vicPprDuty, vicDuty: vicDuty, helpRepayment: helpRepayment,
+    takeHome: takeHome, contractorRate: contractorRate, mortgageExtra: mortgageExtra };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.Calc = api;
 })(this);
