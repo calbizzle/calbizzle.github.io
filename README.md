@@ -1,4 +1,4 @@
-# AU Small Biz Calculators
+# Ledgerfair
 
 Static site for [calbizzle.github.io](https://calbizzle.github.io/): free calculators for Australian tradies, sole traders, and landlords (2026–27).
 
