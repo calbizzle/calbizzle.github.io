@@ -62,3 +62,6 @@ footer.site h2{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spaci
 .prose>p,.prose>ul,.prose>ol,.prose>h3,.prose>details,.prose>table,.prose>.disc{max-width:820px}
 .cta{margin:2rem 0;padding:1.25rem 1.5rem;border:2px solid #14b8a6;border-radius:12px;background:#f0fdfa}
 .cta p{margin:.4rem 0}.cta small{display:block;margin-top:.5rem;color:#475569}
+.shot{margin:1rem 0 1.75rem}.shot img{display:block;width:100%;height:auto;border-radius:var(--r);box-shadow:var(--sh);border:1px solid var(--bd)}.shot figcaption{font-size:.9rem;color:var(--mut);margin-top:.5rem}
+.eyebrow-dark{margin:0;font-size:.85rem;font-weight:650;color:var(--teal);text-transform:uppercase;letter-spacing:.06em}
+.btn.alt{background:#fff;color:var(--navy2);border:1.5px solid var(--bd)}.btn.alt:hover{border-color:var(--teal);background:var(--tealbg)}
