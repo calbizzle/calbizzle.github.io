@@ -149,9 +149,18 @@
     return { repayment: pmt, baseMonths: base.months, baseInterest: base.interest, newMonths: w.months,
       newInterest: w.interest, interestSaved: base.interest - w.interest, monthsSaved: base.months - w.months };
   }
+  // Markup vs margin. Markup is profit / cost; margin is profit / sell price (both ex GST).
+  function markupMargin(p) {
+    var cost = +p.cost || 0, mu = (+p.markupPct || 0) / 100, tm = (+p.targetMarginPct || 0) / 100;
+    if (cost <= 0 || tm >= 1) return null;
+    var sell = cost * (1 + mu), profit = sell - cost;
+    var tSell = cost / (1 - tm);
+    return { sellExGst: sell, sellIncGst: sell * 1.1, profit: profit, marginPct: sell > 0 ? profit / sell * 100 : 0,
+      targetSell: tSell, targetSellIncGst: tSell * 1.1, targetMarkupPct: tm > 0 ? tm / (1 - tm) * 100 : 0, targetProfit: tSell - cost };
+  }
   var api = { incomeTax: incomeTax, lito: lito, medicare: medicare, totalTax: totalTax,
     soleTrader: soleTrader, chargeOut: chargeOut, rentalYield: rentalYield, annualRepayment: annualRepayment,
     vicGeneralDuty: vicGeneralDuty, vicPprDuty: vicPprDuty, vicDuty: vicDuty, helpRepayment: helpRepayment,
-    takeHome: takeHome, contractorRate: contractorRate, mortgageExtra: mortgageExtra };
+    takeHome: takeHome, contractorRate: contractorRate, mortgageExtra: mortgageExtra, markupMargin: markupMargin };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.Calc = api;
 })(this);
