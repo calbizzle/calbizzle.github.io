@@ -1,0 +1,144 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>True Cost of an Employee Calculator (AU 2026-27) | Ledgerfair</title><meta name="description" content="Ledgerfair&#x27;s free Australian employee on-costs calculator: the true yearly cost of a tradie or apprentice, and the hourly rate to use in a quote."><meta property="og:title" content="True Cost of an Employee Calculator (AU 2026-27) | Ledgerfair"><meta property="og:description" content="Ledgerfair&#x27;s free Australian employee on-costs calculator: the true yearly cost of a tradie or apprentice, and the hourly rate to use in a quote."><meta property="og:site_name" content="Ledgerfair"><link rel="canonical" href="https://ledgerfair.com.au/true-cost-of-employee-calculator.html"><meta name="theme-color" content="#0b3b5c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="stylesheet" href="style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "True Cost of an Employee Calculator", "url": "https://ledgerfair.com.au/true-cost-of-employee-calculator.html", "description": "Free Australian employee on-costs calculator for tradies and small businesses. Yearly cost of an employee or apprentice, cost per productive hour, and a minimum charge-out rate.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "AUD"}, "dateModified": "2026-11-11"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the true cost of an employee in Australia?", "acceptedAnswer": {"@type": "Answer", "text": "It is the wage plus the costs you pay because you employ the person: superannuation, leave loading if the award has it, workers compensation, payroll tax if you are over your state threshold, and extras such as tools, PPE, a vehicle, training and a phone. Annual leave, personal leave and public holidays are usually already inside a salary, or inside an hourly rate paid across 52 weeks. They still reduce the hours you can charge for, so the cost per productive hour is higher than the wage."}}, {"@type": "Question", "name": "How much does an apprentice cost?", "acceptedAnswer": {"@type": "Answer", "text": "Use the same calculation with the ordinary hourly rate on the award or the pay slip. Apprentice rates are lower than a qualified tradesperson's and depend on the trade and the year of the apprenticeship. Add the tool kit, PPE, TAFE fees and licences in the extras. If they spend whole days at trade school, enter those days as other paid days off the tools. Wage subsidies and hiring incentives are not assumed: enter any amount you actually receive so it comes off the total. Workers under 18 are only entitled to super when they work more than 30 hours in a week (ATO). Set the super rate to 0 if it does not apply."}}, {"@type": "Question", "name": "What is an employee on-costs calculator?", "acceptedAnswer": {"@type": "Answer", "text": "On-costs are the costs of employing someone on top of their wage. This calculator adds super, leave loading, workers compensation, payroll tax and any extras you enter, subtracts wage subsidies, then divides by the hours you can sell after leave, public holidays and non-billable time."}}, {"@type": "Question", "name": "Does the hourly wage already include annual leave and sick leave?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter ordinary pay only, excluding super. Four weeks of annual leave, personal leave and public holidays are paid at the ordinary rate, so that pay is already in an annual salary or in an hourly rate multiplied by 52 weeks. Do not add it again. Leave loading is extra, and only where an award or agreement pays it. If the salary you enter already includes leave loading, turn the loading off. Personal leave is assumed to be taken. Lower the days if this person rarely uses it. Part-time leave is pro-rata, so change the weeks and days to match."}}, {"@type": "Question", "name": "Do small businesses pay payroll tax?", "acceptedAnswer": {"@type": "Answer", "text": "Most do not. Payroll tax applies only once your total Australian taxable wages pass your state threshold. In 2026\u201327 those thresholds run from $1 million in Victoria and Western Australia up to $2.5 million in the Northern Territory. NSW is $1.2 million and Queensland is $1.3 million. Leave the rate at 0 unless you already pay payroll tax. If you do, an extra employee is taxed at about your state rate because the threshold is already used up. The percentage here applies to this worker's wages, leave loading and super only. It does not model groups, interstate wages or phase-outs."}}, {"@type": "Question", "name": "Is the charge-out rate the price I should quote?", "acceptedAnswer": {"@type": "Answer", "text": "It is the minimum ex-GST rate for this person's labour at the margin you choose. It does not cover the rest of the business, such as your own pay, insurance, rent or materials. Use the tradie charge-out rate calculator to price the whole business, and the markup vs margin calculator when you mark up materials. Add 10% GST only if you are registered for GST."}}]}</script>
+<script data-goatcounter="https://calbizzle.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body><a href="#main" class="skip">Skip to content</a><header class="site"><div class="wrap bar"><a class="brand" href="index.html"><svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0b3b5c"/><path d="M9 22h14" stroke="#5fd0c0" stroke-width="2.4" stroke-linecap="round"/><path d="M10 18v-6M16 18V9M22 18v-4" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg><span>Ledgerfair</span></a><nav class="nav" aria-label="Main"><a href="index.html#business">Business</a><a href="index.html#property">Property</a><a href="index.html#pay">Pay &amp; tax</a><a href="tradie-job-costing-quote-builder.html">Templates</a><a href="methodology.html">Methodology</a><a href="about.html">About</a></nav></div></header><main id="main" class="wrap prose"><h1>True Cost of an Employee Calculator (Australia 2026-27)</h1><p class="lead">See what a tradesperson or apprentice really costs for the year, what that is per hour you can charge out, and the minimum rate to use in a quote. Change any figure. It runs in your browser, and nothing you enter is sent anywhere.</p><p class="badge"><span>Last updated 11 Nov 2026</span><span>Figures for 2026-27</span><span>Sources: ATO, Fair Work, Safe Work Australia</span></p>
+<div class="calc"><form id="f" onsubmit="return false">
+<p class="flab">Pay</p>
+<label for="hourly">Hourly wage, excluding super ($/hr)<input id="hourly" type="number" inputmode="decimal" step="any" value="40"></label>
+<label for="hoursPerWeek">Ordinary hours per week<input id="hoursPerWeek" type="number" inputmode="decimal" step="any" value="38"></label>
+<label class="chk span2" for="useSalary"><input id="useSalary" type="checkbox">Use annual salary instead of the hourly wage</label>
+<label class="span2" for="salary">Annual salary, excluding super and leave loading ($/yr)<input id="salary" type="number" inputmode="decimal" step="any" value="80000"></label>
+<p class="flab">Leave and days off the tools</p>
+<label for="leaveWeeks">Annual leave (weeks)<input id="leaveWeeks" type="number" inputmode="decimal" step="any" value="4"></label>
+<label for="leaveLoadingPct">Leave loading (%)<input id="leaveLoadingPct" type="number" inputmode="decimal" step="any" value="17.5"></label>
+<label class="chk span2" for="leaveLoading"><input id="leaveLoading" type="checkbox" checked>Include annual leave loading</label>
+<label for="personalDays">Personal/sick leave (days)<input id="personalDays" type="number" inputmode="decimal" step="any" value="10"></label>
+<label for="publicHolidays">Public holidays (days). About 11 in most states<input id="publicHolidays" type="number" inputmode="decimal" step="any" value="11"></label>
+<label class="span2" for="otherDays">Other paid days off the tools, such as TAFE (days)<input id="otherDays" type="number" inputmode="decimal" step="any" value="0"></label>
+<p class="flab">On-costs</p>
+<label for="superPct">Superannuation guarantee (%)<input id="superPct" type="number" inputmode="decimal" step="any" value="12"></label>
+<label for="workersCompPct">Workers compensation premium (% of wages + leave loading). 2.5% is a starting point only. It varies by state and trade, so use your policy rate<input id="workersCompPct" type="number" inputmode="decimal" step="any" value="2.5"></label>
+<label class="span2" for="payrollTaxPct">Payroll tax (% of wages, leave loading and super). Leave at 0 if you are under your state threshold. Most small businesses are<input id="payrollTaxPct" type="number" inputmode="decimal" step="any" value="0"></label>
+<p class="flab">Extras per year</p>
+<label for="tools">Tools ($/yr)<input id="tools" type="number" inputmode="decimal" step="any" value="500"></label>
+<label for="uniforms">Uniforms and PPE ($/yr)<input id="uniforms" type="number" inputmode="decimal" step="any" value="400"></label>
+<label for="vehicle">Vehicle allowance ($/yr)<input id="vehicle" type="number" inputmode="decimal" step="any" value="0"></label>
+<label for="training">Training and licences ($/yr)<input id="training" type="number" inputmode="decimal" step="any" value="300"></label>
+<label for="phone">Phone ($/yr)<input id="phone" type="number" inputmode="decimal" step="any" value="0"></label>
+<label for="subsidies">Wage subsidies you actually receive ($/yr, reduces the cost)<input id="subsidies" type="number" inputmode="decimal" step="any" value="0"></label>
+<p class="flab">What to charge</p>
+<label for="nonBillablePct">Non-billable time while at work: driving, yard, admin (%)<input id="nonBillablePct" type="number" inputmode="decimal" step="any" value="15"></label>
+<label for="marginPct">Target profit margin (% of the charge-out price)<input id="marginPct" type="number" inputmode="decimal" step="any" value="20"></label>
+</form>
+<section class="results" aria-live="polite"><h2 class="rh">Your results</h2><dl>
+<dt>Total annual cost</dt><dd class="big" id="o_total"></dd>
+<dt>Cost per productive hour</dt><dd class="big" id="o_hour"></dd>
+<dt>Minimum charge-out (ex GST)</dt><dd class="big" id="o_rate"></dd>
+<dt>Charge-out inc GST, if registered</dt><dd id="o_inc"></dd>
+<dt>Productive hours / yr</dt><dd id="o_hrs"></dd>
+<dt>On-costs above the wage</dt><dd id="o_on"></dd>
+<dt>Equivalent markup on cost</dt><dd id="o_mu"></dd>
+</dl></section></div>
+<div class="breakdown">
+<table>
+<caption>Annual cost</caption>
+<thead><tr><th scope="col">Item</th><th class="num" scope="col">Amount</th></tr></thead>
+<tbody>
+<tr><td>Ordinary wages</td><td class="num" id="b_wages"></td></tr>
+<tr><td>Leave loading</td><td class="num" id="b_loading"></td></tr>
+<tr><td>Superannuation</td><td class="num" id="b_super"></td></tr>
+<tr><td>Workers compensation</td><td class="num" id="b_wc"></td></tr>
+<tr><td>Payroll tax</td><td class="num" id="b_pt"></td></tr>
+<tr><td>Tools</td><td class="num" id="b_tools"></td></tr>
+<tr><td>Uniforms and PPE</td><td class="num" id="b_uniforms"></td></tr>
+<tr><td>Vehicle allowance</td><td class="num" id="b_vehicle"></td></tr>
+<tr><td>Training and licences</td><td class="num" id="b_training"></td></tr>
+<tr><td>Phone</td><td class="num" id="b_phone"></td></tr>
+<tr><td>Wage subsidies</td><td class="num" id="b_subsidies"></td></tr>
+<tr class="total"><td>Total annual cost</td><td class="num" id="b_total"></td></tr>
+</tbody>
+</table>
+<table>
+<caption>Hours you can charge</caption>
+<thead><tr><th scope="col">Item</th><th class="num" scope="col">Hours</th></tr></thead>
+<tbody>
+<tr><td>Paid hours</td><td class="num" id="b_paid"></td></tr>
+<tr><td>Less annual leave</td><td class="num" id="b_al"></td></tr>
+<tr><td>Less personal/sick leave</td><td class="num" id="b_personal"></td></tr>
+<tr><td>Less public holidays</td><td class="num" id="b_ph"></td></tr>
+<tr><td>Less other paid days off the tools</td><td class="num" id="b_other"></td></tr>
+<tr><td>Hours at work</td><td class="num" id="b_atwork"></td></tr>
+<tr><td>Less non-billable time</td><td class="num" id="b_nb"></td></tr>
+<tr class="total"><td>Productive hours</td><td class="num" id="b_prod"></td></tr>
+</tbody>
+</table>
+</div>
+<p class="disc"><strong>Not financial or tax advice.</strong> This is a general estimate from the figures you enter. It does not consider your personal circumstances. Check with a registered tax agent or licensed adviser before acting.</p>
+<p class="free-line"><strong>Got the labour cost?</strong> Put the charge-out rate into a quote with the <a href="Ledgerfair_Free_Simple_Quote_Template.xlsx" download data-goatcounter-click="free-quote-employeecost">free Simple Quote Template</a> (Excel or Google Sheets, no sign-up).</p>
+<aside class="cta" aria-label="Paid template"><p><strong>Tradie Job Costing &amp; Quote Builder</strong>: use this labour cost on real jobs, then send an itemised quote and invoice with your ABN and GST, plus a profit check and job register. Works in Excel and Google Sheets.</p><p><a class="btn" href="tradie-job-costing-quote-builder.html">See what&#39;s inside, A$19</a> <small>Or <a href="https://payhip.com/b/hyPNl" rel="noopener" data-goatcounter-click="employeecost-payhip">buy on Payhip, A$19</a>. Preview every sheet and a free sample quote. The calculator above stays free.</small></p></aside>
+<h2>How it works</h2>
+<p>The wage you type is ordinary pay only. It excludes super. An hourly rate is turned into a year by multiplying by the weekly hours and by 52, so the pay for annual leave, personal leave and public holidays is already in that total. A salary is used as you type it. Leave loading, where you tick it on, is the only leave amount added as extra dollars. The hours of leave and public holidays then come back out when the cost is spread over the hours you can actually sell.</p>
+<ol>
+<li>Ordinary wages = hourly rate × hours per week × 52, or the annual salary if you tick that option.</li>
+<li>Leave loading = ordinary wages × (annual leave weeks ÷ 52) × loading %. It is $0 if loading is off.</li>
+<li>Super = super % × (ordinary wages + leave loading).</li>
+<li>Workers compensation = your premium % × (ordinary wages + leave loading).</li>
+<li>Payroll tax = your rate × (ordinary wages + leave loading + super). Leave the rate at 0 if you are under the threshold.</li>
+<li>Total annual cost = ordinary wages + leave loading + super + workers compensation + payroll tax + tools + uniforms + vehicle allowance + training + phone − wage subsidies.</li>
+<li>A day is one-fifth of the weekly hours, which assumes a 5-day week. Hours at work = paid hours − annual leave − personal leave − public holidays − other paid days off the tools.</li>
+<li>Productive hours = hours at work × (1 − non-billable %). Use the percentage for time at work that you cannot charge, such as driving, the yard and admin. Use the day count for whole days away, such as TAFE, so you do not count the same hours twice.</li>
+<li>Cost per productive hour = total annual cost ÷ productive hours.</li>
+<li>Minimum charge-out (ex GST) = cost per productive hour ÷ (1 − margin). That is a margin on the price, not a markup on cost. Inc GST = the ex-GST rate × 1.10, and only if you are registered.</li>
+</ol>
+<h3>Worked example</h3>
+<p>The figures loaded in the form are a qualified tradesperson on $40 an hour, 38 ordinary hours a week. Ordinary wages are $40 × 38 × 52 = $79,040. Leave loading is 17.5% of 4 weeks: $79,040 × 4 ÷ 52 × 17.5% = $1,064. Super at 12% of $80,104 is $9,612.48. Workers compensation at 2.5% of $80,104 is $2,002.60. Tools $500, uniforms and PPE $400, and training $300 add $1,200. Payroll tax, the phone, the vehicle allowance and wage subsidies are $0.</p>
+<p>Total annual cost is $79,040 + $1,064 + $9,612.48 + $2,002.60 + $1,200 = $92,919.08. That is $13,879.08 above the wage, or 17.56%. Spread over the 1,976 paid hours, the cost is $47.02 an hour before any hour is removed.</p>
+<p>Paid hours are 38 × 52 = 1,976. Take off 152 hours of annual leave (4 × 38), 76 hours of personal leave (10 × 7.6) and 83.6 hours of public holidays (11 × 7.6). Hours at work are 1,664.4. At 15% non-billable, productive hours are 1,664.4 × 0.85 = 1,414.74. Cost per productive hour is $92,919.08 ÷ 1,414.74 = $65.68, against a $40 wage. At a 20% margin the minimum charge-out is $65.68 ÷ 0.80 = $82.10 an hour ex GST, or $90.31 inc GST. A 20% margin is a 25% markup on that cost. Check a markup with the <a href="markup-vs-margin-calculator.html">markup vs margin calculator</a>.</p>
+<h2>What this does not cover</h2>
+<p>This is the cost of one person. It does not include your own wage, rent, insurance, the accountant, or vehicles and tools the business already has. Price that side with the <a href="tradie-charge-out-rate-calculator.html">tradie charge-out rate calculator</a>. Overtime, penalty rates, bonuses and recruitment costs are not included. If they are regular, raise the wage or add an allowance in the extras.</p>
+<p>For an apprentice, type the award hourly rate, put TAFE days in other paid days off the tools, and put fees, a starter tool kit and PPE in the extras. If a hiring incentive actually lands, type it under wage subsidies. The result is otherwise the gross cost.</p>
+<h2>Assumptions and sources</h2>
+<ul>
+<li>Super guarantee is 12% from 1 July 2025, including the 2026–27 year and from 1 July 2027 (<a href="https://www.ato.gov.au/tax-rates-and-codes/key-superannuation-rates-and-thresholds/super-guarantee">ATO: Super guarantee</a>). From 1 July 2026 it is worked out on qualifying earnings and paid each payday (<a href="https://www.ato.gov.au/businesses-and-organisations/super-for-employers/about-payday-super">ATO: Payday Super</a>). This page applies your percentage to ordinary wages plus leave loading. It does not apply the maximum contribution base. Workers under 18 are only entitled to super when they work more than 30 hours in a week (<a href="https://www.ato.gov.au/businesses-and-organisations/super-for-employers/work-out-if-you-have-to-pay-super">ATO: Work out if you have to pay super</a>).</li>
+<li>Full-time employees get 4 weeks of paid annual leave and 10 days of paid personal/carer's leave under the National Employment Standards, plus public holidays (<a href="https://www.fairwork.gov.au/employment-conditions/national-employment-standards">Fair Work Ombudsman: National Employment Standards</a>). Part-time leave is pro-rata, so change the weeks and days. Public holidays differ by state. The default is 11. A day equals weekly hours divided by 5.</li>
+<li>Leave loading of 17.5% is common in trade awards. It is not part of the National Employment Standards. Turn it off if the award, agreement or the salary you entered does not include it. Loading is treated as part of the base for super, workers compensation and payroll tax.</li>
+<li>The 2.5% workers compensation default is a round starting point, not a premium. Published house-construction rates at 31 December 2025 ran from about 1.39% in Western Australia to 4.84% in NSW, with Victoria at 2.385% and Queensland at 2.85% (<a href="https://www.safeworkaustralia.gov.au/book/comparison-workers-compensation-arrangements-australia-and-new-zealand-2025-30th-edition/chapter-8-scheme-administrative-and-funding-arrangements/table-88-selected-industry-premium-rates-31-december-2025-payroll">Safe Work Australia: selected industry premium rates</a>). Electrical, plumbing and other trades differ again. The percentage is applied to wages plus leave loading, not to super or to the extras. State definitions of remuneration differ.</li>
+<li>Payroll tax thresholds for 2026–27 are far above a typical small crew. They run from $1 million in Victoria and Western Australia to $2.5 million in the Northern Territory. NSW is $1.2 million at 5.45%, Victoria is $1 million at 4.85% (1.2125% for regional employers) and Queensland is $1.3 million at 4.75% (<a href="https://www.payrolltax.gov.au/resources">payrolltax.gov.au: rates and thresholds</a>). Most small businesses should leave the rate at 0. If you already pay it, the rate on one more employee is close to your state rate, because the threshold is already used. This page does not subtract the threshold or model groups, interstate wages or phase-outs.</li>
+<li>Extras are cash costs. They are not included in super, workers compensation or payroll tax. If an amount is really an award allowance paid as wages, such as a tool allowance, add it to the hourly rate or the salary instead.</li>
+<li>Wages are not subject to GST. Add 10% GST to the charge-out rate only if the business is registered. Registration is required once GST turnover reaches $75,000 (<a href="https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/registering-for-gst">ATO: Registering for GST</a>).</li>
+<li>Amounts are rounded to the nearest cent. General information only, not financial or tax advice. How the site handles sources and limits is on the <a href="methodology.html">methodology</a> page.</li>
+</ul>
+<p class="note">Last checked 11 November 2026. General information only, not financial or tax advice.</p>
+<h2>FAQ</h2>
+<details><summary>What is the true cost of an employee in Australia?</summary><p>It is the wage plus the costs you pay because you employ the person: superannuation, leave loading if the award has it, workers compensation, payroll tax if you are over your state threshold, and extras such as tools, PPE, a vehicle, training and a phone. Annual leave, personal leave and public holidays are usually already inside a salary, or inside an hourly rate paid across 52 weeks. They still reduce the hours you can charge for, so the cost per productive hour is higher than the wage.</p></details>
+<details><summary>How much does an apprentice cost?</summary><p>Use the same calculation with the ordinary hourly rate on the award or the pay slip. Apprentice rates are lower than a qualified tradesperson's and depend on the trade and the year of the apprenticeship. Add the tool kit, PPE, TAFE fees and licences in the extras. If they spend whole days at trade school, enter those days as other paid days off the tools. Wage subsidies and hiring incentives are not assumed: enter any amount you actually receive so it comes off the total. Workers under 18 are only entitled to super when they work more than 30 hours in a week (ATO). Set the super rate to 0 if it does not apply.</p></details>
+<details><summary>What is an employee on-costs calculator?</summary><p>On-costs are the costs of employing someone on top of their wage. This calculator adds super, leave loading, workers compensation, payroll tax and any extras you enter, subtracts wage subsidies, then divides by the hours you can sell after leave, public holidays and non-billable time.</p></details>
+<details><summary>Does the hourly wage already include annual leave and sick leave?</summary><p>Yes. Enter ordinary pay only, excluding super. Four weeks of annual leave, personal leave and public holidays are paid at the ordinary rate, so that pay is already in an annual salary or in an hourly rate multiplied by 52 weeks. Do not add it again. Leave loading is extra, and only where an award or agreement pays it. If the salary you enter already includes leave loading, turn the loading off. Personal leave is assumed to be taken. Lower the days if this person rarely uses it. Part-time leave is pro-rata, so change the weeks and days to match.</p></details>
+<details><summary>Do small businesses pay payroll tax?</summary><p>Most do not. Payroll tax applies only once your total Australian taxable wages pass your state threshold. In 2026–27 those thresholds run from $1 million in Victoria and Western Australia up to $2.5 million in the Northern Territory. NSW is $1.2 million and Queensland is $1.3 million. Leave the rate at 0 unless you already pay payroll tax. If you do, an extra employee is taxed at about your state rate because the threshold is already used up. The percentage here applies to this worker's wages, leave loading and super only. It does not model groups, interstate wages or phase-outs.</p></details>
+<details><summary>Is the charge-out rate the price I should quote?</summary><p>It is the minimum ex-GST rate for this person's labour at the margin you choose. It does not cover the rest of the business, such as your own pay, insurance, rent or materials. Use the tradie charge-out rate calculator to price the whole business, and the markup vs margin calculator when you mark up materials. Add 10% GST only if you are registered for GST.</p></details>
+<script src="calc.js"></script><script src="app.js"></script><script>
+bind("employeecost");
+(function () {
+  var salaryBox = document.getElementById("useSalary");
+  var loadingBox = document.getElementById("leaveLoading");
+  function sync() {
+    document.getElementById("hourly").disabled = salaryBox.checked;
+    document.getElementById("salary").disabled = !salaryBox.checked;
+    document.getElementById("leaveLoadingPct").disabled = !loadingBox.checked;
+  }
+  salaryBox.addEventListener("input", sync);
+  loadingBox.addEventListener("input", sync);
+  sync();
+})();
+</script>
+<nav class="related" aria-label="Related calculators"><h2>Related calculators</h2><ul>
+<li><a href="tradie-charge-out-rate-calculator.html">Tradie charge-out rate calculator</a></li>
+<li><a href="markup-vs-margin-calculator.html">Markup vs margin calculator</a></li>
+<li><a href="contractor-vs-employee-rate-calculator.html">Contractor vs employee rate calculator</a></li>
+</ul></nav></main>
+<footer class="site"><div class="wrap fgrid"><div><a class="brand" href="index.html"><svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0b3b5c"/><path d="M9 22h14" stroke="#5fd0c0" stroke-width="2.4" stroke-linecap="round"/><path d="M10 18v-6M16 18V9M22 18v-4" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg><span>Ledgerfair</span></a><p>Independent, free calculators for Australians. General information only, not financial or tax advice. Figures last checked 11 Nov 2026.</p></div>
+<div><h2>Calculators</h2><ul><li><a href="tradie-charge-out-rate-calculator.html">Charge-out rate</a></li><li><a href="true-cost-of-employee-calculator.html">Employee true cost</a></li><li><a href="sole-trader-tax-set-aside-calculator.html">Sole trader tax</a></li><li><a href="markup-vs-margin-calculator.html">Markup vs margin</a></li><li><a href="contractor-vs-employee-rate-calculator.html">Contractor rate</a></li><li><a href="rental-yield-calculator.html">Rental yield</a></li><li><a href="vic-stamp-duty-calculator.html">VIC stamp duty</a></li><li><a href="extra-repayment-offset-calculator.html">Offset &amp; extra repayments</a></li><li><a href="take-home-pay-help-calculator.html">Take-home pay</a></li></ul></div>
+<div><h2>About</h2><ul><li><a href="about.html">About Ledgerfair</a></li><li><a href="methodology.html">Methodology &amp; sources</a></li><li><a href="contact.html">Contact</a></li><li><a href="terms.html">Terms &amp; disclaimer</a></li><li><a href="privacy.html">Privacy</a></li></ul></div></div>
+<div class="wrap legal">&copy; 2026 Ledgerfair. Built in Australia. No sign-up, no cookies, nothing you type leaves your browser.</div></footer></body></html>

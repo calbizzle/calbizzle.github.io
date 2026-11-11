@@ -149,6 +149,56 @@
     return { repayment: pmt, baseMonths: base.months, baseInterest: base.interest, newMonths: w.months,
       newInterest: w.interest, interestSaved: base.interest - w.interest, monthsSaved: base.months - w.months };
   }
+  // True annual cost of one employee or apprentice, and a minimum charge-out rate.
+  // Ordinary wages already include pay for annual leave, personal leave and public holidays.
+  // Leave loading, super, workers comp and payroll tax are added on top. Money is rounded to cents.
+  function cents(n) { return Math.round((+n || 0) * 100) / 100; }
+  function employeeCost(p) {
+    var hoursPerWeek = Math.max(0, +p.hoursPerWeek || 0);
+    var ordinary = p.useSalary
+      ? cents(Math.max(0, +p.salary || 0))
+      : cents(Math.max(0, +p.hourly || 0) * hoursPerWeek * 52);
+    var leaveWeeks = Math.max(0, +p.leaveWeeks || 0);
+    var loadingPct = p.leaveLoading ? Math.max(0, +p.leaveLoadingPct || 0) / 100 : 0;
+    var leaveLoading = cents(ordinary * (leaveWeeks / 52) * loadingPct);
+    var wageBase = ordinary + leaveLoading;
+    var superAmt = cents(wageBase * (Math.max(0, +p.superPct || 0) / 100));
+    var workersComp = cents(wageBase * (Math.max(0, +p.workersCompPct || 0) / 100));
+    var payrollTax = cents((wageBase + superAmt) * (Math.max(0, +p.payrollTaxPct || 0) / 100));
+    var tools = cents(Math.max(0, +p.tools || 0));
+    var uniforms = cents(Math.max(0, +p.uniforms || 0));
+    var vehicle = cents(Math.max(0, +p.vehicle || 0));
+    var training = cents(Math.max(0, +p.training || 0));
+    var phone = cents(Math.max(0, +p.phone || 0));
+    var subsidies = cents(Math.max(0, +p.subsidies || 0));
+    var extras = cents(tools + uniforms + vehicle + training + phone);
+    var total = cents(ordinary + leaveLoading + superAmt + workersComp + payrollTax + extras - subsidies);
+    var dayHours = hoursPerWeek / 5;
+    var paidHours = hoursPerWeek * 52;
+    var annualLeaveHours = leaveWeeks * hoursPerWeek;
+    var personalHours = Math.max(0, +p.personalDays || 0) * dayHours;
+    var publicHolidayHours = Math.max(0, +p.publicHolidays || 0) * dayHours;
+    var otherHours = Math.max(0, +p.otherDays || 0) * dayHours;
+    var hoursOff = annualLeaveHours + personalHours + publicHolidayHours + otherHours;
+    var hoursAtWork = paidHours - hoursOff;
+    var nonBillablePct = Math.max(0, +p.nonBillablePct || 0) / 100;
+    var nonBillableHours = hoursAtWork > 0 ? hoursAtWork * nonBillablePct : 0;
+    var productive = hoursAtWork - nonBillableHours;
+    var margin = Math.max(0, +p.marginPct || 0) / 100;
+    if (hoursPerWeek <= 0 || productive <= 0 || margin >= 1) return null;
+    var perHour = total / productive;
+    var rate = perHour / (1 - margin);
+    return {
+      ordinary: ordinary, leaveLoading: leaveLoading, superAmt: superAmt, workersComp: workersComp,
+      payrollTax: payrollTax, tools: tools, uniforms: uniforms, vehicle: vehicle, training: training,
+      phone: phone, subsidies: subsidies, extras: extras, total: total,
+      onCosts: cents(total - ordinary), onCostPct: ordinary > 0 ? (total - ordinary) / ordinary * 100 : 0,
+      paidHours: paidHours, annualLeaveHours: annualLeaveHours, personalHours: personalHours,
+      publicHolidayHours: publicHolidayHours, otherHours: otherHours, hoursAtWork: hoursAtWork,
+      nonBillableHours: nonBillableHours, productiveHours: productive,
+      costPerHour: perHour, rateExGst: rate, rateIncGst: rate * 1.1, markupPct: margin > 0 ? (margin / (1 - margin)) * 100 : 0
+    };
+  }
   // Markup vs margin. Markup is profit / cost; margin is profit / sell price (both ex GST).
   function markupMargin(p) {
     var cost = +p.cost || 0, mu = (+p.markupPct || 0) / 100, tm = (+p.targetMarginPct || 0) / 100;
@@ -161,6 +211,7 @@
   var api = { incomeTax: incomeTax, lito: lito, medicare: medicare, totalTax: totalTax,
     soleTrader: soleTrader, chargeOut: chargeOut, rentalYield: rentalYield, annualRepayment: annualRepayment,
     vicGeneralDuty: vicGeneralDuty, vicPprDuty: vicPprDuty, vicDuty: vicDuty, helpRepayment: helpRepayment,
-    takeHome: takeHome, contractorRate: contractorRate, mortgageExtra: mortgageExtra, markupMargin: markupMargin };
+    takeHome: takeHome, contractorRate: contractorRate, mortgageExtra: mortgageExtra, markupMargin: markupMargin,
+    employeeCost: employeeCost };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.Calc = api;
 })(this);

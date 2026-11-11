@@ -3,6 +3,7 @@
 Static site for [calbizzle.github.io](https://calbizzle.github.io/): free calculators for Australian tradies, sole traders, and landlords (2026–27).
 
 - Tradie charge-out rate (hourly and day rate)
+- True cost of an employee or apprentice (annual cost and charge-out rate)
 - Sole trader tax set-aside
 - Rental yield and cash flow
 - Contractor vs employee rate
